@@ -9,7 +9,7 @@ const controls = [
 ]
 const buildControls = props => (
     <div className={classes.BuildControls}>
-    <p>Current Price: <strong>{props.price.toFixed(2)}</strong></p>
+        <p>Current Price: <strong>{props.price.toFixed(2)}</strong></p>
         {controls.map(crtl => {
             return <BuildControl
                 added={() => props.ingredientsAdded(crtl.type)}
@@ -19,6 +19,12 @@ const buildControls = props => (
                 label={crtl.label}
             />
         })}
+        <button
+            className={classes.OrderButton}
+            disabled={!props.purchasable}
+            onClick={props.ordered}>
+            ORDER NOW
+        </button>
     </div>
 )
 
